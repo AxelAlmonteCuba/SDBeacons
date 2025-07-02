@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer name="dp_rounds">12</integer>
+    <integer name="dp_space">12</integer>
+    <integer name="size_texts">17</integer>
+    <integer name="text_info">14</integer>
+    <integer name="width_image">292</integer>
+    <integer name="height_image">123</integer>
+    <integer name="size_text_card">12</integer>
+    <integer name="size_text_card_info">13</integer>
+    <integer name="size_textButton_card">10</integer>
+    <integer name="width_ubi">312</integer>
+    <integer name="height_ubi">55</integer>
+    <integer name="text_ubi">22</integer>
+    <integer name="rounder_shape_home">15</integer>
+    <integer name="space_Config">36</integer>
+    <integer name="pading_card">10</integer>
+    <integer name="space_card">10</integer>
+    <integer name="paddingLists">15</integer>
+</resources>
