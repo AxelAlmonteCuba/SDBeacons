@@ -9,6 +9,7 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.ui.Modifier
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.compose.rememberNavController
+import com.example.sistemadedetecciondebeacons.beaconConfig.BeaconService
 import com.example.sistemadedetecciondebeacons.repository.AuthRepository
 import com.example.sistemadedetecciondebeacons.ui.navigation.AuthNavigation
 import com.example.sistemadedetecciondebeacons.viewModel.AuthViewModel
@@ -29,7 +30,8 @@ class MainActivity : ComponentActivity() {
         ).get(AuthViewModel::class.java)
         val registerViewModel = ViewModelProvider(this).get(RegisterViewModel::class.java)
 
-        //Data
+        val beaconService =  BeaconService()
+        beaconService.VerificarPremisos(this, this)
 
         setContent {
             val navController = rememberNavController()
