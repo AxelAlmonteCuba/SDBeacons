@@ -38,7 +38,8 @@ class RegisterViewModel : ViewModel() {
                                 "email" to email,
                                 "telefono" to telefono,
                                 "fechaNacimiento" to fechaNacimiento,
-                                "userId" to userId
+                                "userId" to userId,
+                                "rol" to "user"
                             )
 
                             db.collection("usuarios").document(userId)

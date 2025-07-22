@@ -70,13 +70,13 @@ fun BasicTopAppBar(title: String, modifier: Modifier, navController: NavControll
 
 
 @Composable
-fun HomeTopAppBar(id_perfil: Int, name: String){
+fun HomeTopAppBar(id_perfil: Int, name: String, modifier: Modifier){
     val color_text = colorResource(id = R.color.PrimalColor)
     val color_box = colorResource(id = R.color.IconColor)
     val dpSpace = integerResource(id = R.integer.dp_space).dp
     val id_icon_notify = R.drawable.notifications_icon
     val id_icon_config = R.drawable.config_icon
-    Row (modifier = Modifier
+    Row (modifier = modifier
         //.height(41.dp)
         .fillMaxWidth(), verticalAlignment = Alignment.CenterVertically){
 

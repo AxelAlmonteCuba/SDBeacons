@@ -58,9 +58,11 @@ fun LoginScreen(
         userLogged?.let {
             // Guardar en SharedPreferences
             val user_Name = userLogged!!.nombre
+            val user_rol = userLogged!!.rol
             Log.d("LoginScreen", "Guardando nombre: $user_Name")
             val prefs = context.getSharedPreferences("bluxi_prefs", Context.MODE_PRIVATE)
             prefs.edit().putString("USER_NAME", user_Name).apply()
+            prefs.edit().putString("USER_ROL", user_rol).apply()
             navController.navigate("Micro")
 
         }

@@ -55,7 +55,8 @@ class AuthViewModel(private val repository: AuthRepository) : ViewModel() {
                         .addOnSuccessListener { document ->
                             val nombre = document.getString("nombre") ?: ""
                             val email = firebaseUser?.email ?: ""
-                            _usuario.value = User(uid = userId, nombre = nombre, email = email)
+                            val rol = document.getString("rol") ?: ""
+                            _usuario.value = User(uid = userId, nombre = nombre, email = email, rol = rol)
                         }
                         .addOnFailureListener {
                             _error.value = "No se pudieron cargar los datos del usuario"
