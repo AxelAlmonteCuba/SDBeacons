@@ -57,7 +57,8 @@ fun MicroScreen(viewModel: MicroViewModel = viewModel(), modifier: Modifier, aut
     var names by remember { mutableStateOf("") }
 
     val context = LocalContext.current
-    val closestBeacon by BeaconDataProvider.closestBeacon.collectAsState()
+    val bViewModel :BeaconViewModel = viewModel()
+    val closestBeacon by bViewModel.closestBeacon.collectAsState()
     val isAdmin = userRol.equals("admin")
 
     LaunchedEffect(userName) {
