@@ -1,5 +1,7 @@
 package com.example.sistemadedetecciondebeacons.ui.screens
 
+import android.content.Context
+import android.content.Intent
 import android.util.Log
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -22,6 +24,7 @@ import androidx.compose.ui.res.integerResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.times
 import androidx.navigation.NavController
+import com.example.sistemadedetecciondebeacons.MainActivity
 
 import com.example.sistemadedetecciondebeacons.R
 
@@ -87,11 +90,16 @@ fun RegisterScreen(navController: NavController, viewModel: RegisterViewModel) {
                 ButtonDesign("Registrarse") {
                     viewModel.registrarUsuario(names, email, password, phoneNumber, dateBirth) { exito, mensaje ->
                         if (exito) {
-                            navController.navigate("Micro"){
-                                popUpTo(0){
-                                    inclusive = true
-                                }
+                            val prefs = context.getSharedPreferences("bluxi_prefs", Context.MODE_PRIVATE)
+                            prefs.edit().putString("USER_NAME", names).apply()
+                            prefs.edit().putString("USER_ROL", "user").apply()
+
+                            // Lanzar el Activity
+                            val intent = Intent(context, MainActivity::class.java).apply {
+                                putExtra("USER_NAME", names)
+                                flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
                             }
+                            context.startActivity(intent)
 
                         } else {
                             Log.e("Registro", "Error: $mensaje")

@@ -26,6 +26,7 @@ import androidx.compose.ui.res.integerResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.times
 import androidx.navigation.NavHostController
+import com.example.sistemadedetecciondebeacons.MainActivity
 import com.example.sistemadedetecciondebeacons.R
 import com.example.sistemadedetecciondebeacons.ui.components.BasicTopAppBar
 import com.example.sistemadedetecciondebeacons.ui.components.ButtonDesign
@@ -63,7 +64,12 @@ fun LoginScreen(
             val prefs = context.getSharedPreferences("bluxi_prefs", Context.MODE_PRIVATE)
             prefs.edit().putString("USER_NAME", user_Name).apply()
             prefs.edit().putString("USER_ROL", user_rol).apply()
-            navController.navigate("Micro")
+            val intent = Intent(context, MainActivity::class.java).apply {
+                putExtra("USER_NAME", user_Name)
+                putExtra("ROL", user_rol)
+                flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+            }
+            context.startActivity(intent)
 
         }
     }

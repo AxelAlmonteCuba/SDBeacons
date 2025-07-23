@@ -16,5 +16,6 @@
     <integer name="space_Config">36</integer>
     <integer name="pading_card">10</integer>
     <integer name="space_card">10</integer>
-    <integer name="paddingLists">15</integer>
+    <integer name="paddingListsStart">35</integer>
+    <integer name="paddingListsEnd">30</integer>
 </resources>

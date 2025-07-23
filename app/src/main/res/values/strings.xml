@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Sistema de Deteccion de Beacons</string>
+    <string name="title_activity_auth">AuthActivity</string>
 </resources>

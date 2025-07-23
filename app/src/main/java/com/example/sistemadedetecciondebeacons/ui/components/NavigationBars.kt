@@ -70,7 +70,7 @@ fun BasicTopAppBar(title: String, modifier: Modifier, navController: NavControll
 
 
 @Composable
-fun HomeTopAppBar(id_perfil: Int, name: String, modifier: Modifier){
+fun HomeTopAppBar(id_perfil: Int, name: String, modifier: Modifier, setting:()->Unit){
     val color_text = colorResource(id = R.color.PrimalColor)
     val color_box = colorResource(id = R.color.IconColor)
     val dpSpace = integerResource(id = R.integer.dp_space).dp
@@ -126,10 +126,11 @@ fun HomeTopAppBar(id_perfil: Int, name: String, modifier: Modifier){
                 modifier = Modifier
                     .size(25.dp)
                     .clickable {
-
+                        setting()
                     }
             )
         }
     }
 }
+
 

@@ -21,6 +21,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.navigation.NavController
 import com.example.sistemadedetecciondebeacons.R
 import com.example.sistemadedetecciondebeacons.beaconConfig.BeaconDataProvider
 import com.example.sistemadedetecciondebeacons.data.UserUbiData
@@ -36,7 +37,7 @@ import com.example.sistemadedetecciondebeacons.viewModel.MicroViewModel
 
 
 @Composable
-fun MicroScreen(viewModel: MicroViewModel = viewModel(), modifier: Modifier, authViewModel: AuthViewModel) {
+fun MicroScreen(viewModel: MicroViewModel = viewModel(), modifier: Modifier, authViewModel: AuthViewModel, navController: NavController) {
     val microData by viewModel.microData.collectAsState()
 
     val userData = remember { mutableStateOf<Map<String, Any>?>(null) }
@@ -82,7 +83,9 @@ fun MicroScreen(viewModel: MicroViewModel = viewModel(), modifier: Modifier, aut
     Log.d("MicroScreen", "Usuario: $user_Name")
 
 
-    Scaffold(topBar = { HomeTopAppBar(icon_user, user_Name, modifier) }) { innerPadding ->
+    Scaffold(topBar = { HomeTopAppBar(icon_user, user_Name, modifier){
+        navController.navigate("Config")
+    } }) { innerPadding ->
             Column(
                 modifier = modifier.fillMaxSize().padding(innerPadding).padding(start = 15.dp, end = 15.dp),
                 verticalArrangement = if (!isAdmin) Arrangement.Center else Arrangement.Top
