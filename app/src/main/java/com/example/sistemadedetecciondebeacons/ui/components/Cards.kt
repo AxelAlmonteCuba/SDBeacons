@@ -110,7 +110,7 @@ fun CardUser(user_name : String, user_place : String, last_connection_hour: Stri
 
                     }
                     Spacer(modifier = Modifier.weight(0.5f))
-                    TextInfoCard(text = user_place)
+                    TextInfoCard(text = "Ultimo Beacon: " + user_place)
                     Spacer(modifier = Modifier.weight(0.5f))
                     TextInfoCard(text = "Hora: " + last_connection_hour)
                     Spacer(modifier = Modifier.weight(0.5f))
